@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Custom base styles ─────────────────────────────────────── */
+@layer base {
+  :root {
+    --cream: #F0EDE5;
+    --grid-line: rgba(212, 207, 198, 0.45);
+    --forest: #1B5E42;
+    --forest-light: #2D7A57;
+    --amber: #B07D20;
+    --amber-bg: #FDF3D0;
+    --card: #FAFAF7;
+    --border: #E0DBD3;
+    --ink: #1A1A1A;
+    --muted: #6B6560;
+    --red: #DC2626;
+    --red-bg: #FEF2F2;
+    --teal: #0F766E;
+    --teal-bg: #CCFBF1;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--cream);
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-position: -1px -1px;
+    color: var(--ink);
+    min-height: 100vh;
+  }
+}
+
+/* ── Utility classes ─────────────────────────────────────────── */
+@layer utilities {
+  .font-serif {
+    font-family: 'Libre Baskerville', Georgia, serif;
+  }
+  .font-mono {
+    font-family: 'Space Mono', monospace;
+  }
+
+  /* Label style used for category headers, "QUESTION 1", etc. */
+  .label {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.6875rem;  /* 11px */
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .label-green {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--forest);
+  }
+
+  /* White card with subtle border */
+  .card {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+  }
+
+  /* Thin divider line matching grid style */
+  .divider {
+    border-color: var(--border);
+  }
+}
+
+/* ── Animations ──────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out both;
+}
+
+@keyframes pulse-gentle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-pulse-gentle {
+  animation: pulse-gentle 1.8s ease-in-out infinite;
+}
